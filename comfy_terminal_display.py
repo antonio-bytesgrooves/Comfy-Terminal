@@ -54,4 +54,4 @@ class TerminalDisplayNode:
         text_display = getoutput(f"{text_input}")
         retval = text_display
         print(retval)
-        return (text_display,)
+        return (retval,)
