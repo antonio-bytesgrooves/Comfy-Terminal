@@ -32,16 +32,17 @@ class TerminalDisplayNode:
         """
         return {
             "required": {
-                "text_input": ("STRING", {
+                "text_display": ("STRING", {
                     "multiline": True,
                     "default": ""
                 }),
             },
         }
 
-    RETURN_TYPES = ("STRING",)
+    RETURN_TYPES = ()
     FUNCTION = "execute"
+    OUTPUT_NODE=False
     CATEGORY = "Utils"
     def execute(self, text_input):
-        out = getoutput(f"{text_input}")
-        return (out,)
+        text_display = getoutput(f"{text_input}")
+        return (text_display,)
