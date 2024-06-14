@@ -31,7 +31,7 @@ class TerminalStandAloneNode:
             dict: Contains input fields config.
         """
         return {
-            "required": {
+            "optional": {
                 "text_input": ("STRING", {
                     "multiline": True,
                     "default": ""
