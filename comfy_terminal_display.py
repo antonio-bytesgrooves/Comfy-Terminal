@@ -49,7 +49,7 @@ class TerminalDisplayNode:
     FUNCTION = "execute"
     OUTPUT_NODE=True
     CATEGORY = "OS Utils"
-    def execute(text_input):
+    def execute(self,text_input):
         text_display = getoutput(f"{text_input}")
         print(text_display)
         return (text_display)
