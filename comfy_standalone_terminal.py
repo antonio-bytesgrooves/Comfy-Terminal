@@ -1,7 +1,5 @@
+from comfyui.core.node import Node, register_node
 from subprocess import getoutput
-
-from subprocess import getoutput
-
 class TerminalStandAloneNode:
     """
     A custom node with no external input, only a multiline textbox for user input.
