@@ -1,6 +1,4 @@
-from subprocess import getoutput
-
-class TerminalNode:
+class TerminalNodeDisplay:
     """
     A custom node with no external input, only a multiline textbox for user input.
 
@@ -23,7 +21,7 @@ class TerminalNode:
         pass
 
     @classmethod
-    def INPUT_TYPES(cls):
+    def INPUT_TYPES(s):
         """
         Return a dictionary which contains config for all input fields.
 
@@ -36,24 +34,29 @@ class TerminalNode:
                     "multiline": True,
                     "default": ""
                 }),
+                "text_out": ("STRING", {
+                    "multiline": True,
+                    "default": ""
+                }),
             },
         }
 
-    RETURN_TYPES = ("STRING",)
-    RETURN_NAMES = ("console_out",)
+    RETURN_TYPES = ()
+    RETURN_NAMES = ()
+    OUTPUT_NODE = False
     FUNCTION = "execute"
     CATEGORY = "OS Utils"
     def execute(self, text_input):
-        console_out = getoutput(f"{text_input}")
-        return (console_out,)
+        text_out = text_input
+        return (text_out,)
     
 
 # A dictionary that contains all nodes you want to export with their names
 NODE_CLASS_MAPPINGS = {
-    "TerminalNode": TerminalNode
+    "TerminalNodeDisplay": TerminalNodeDisplay
 }
 
 # A dictionary that contains the friendly/humanly readable titles for the nodes
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "TerminalNode": "Terminal Node"
+    "TerminalNodeDisplay": "Terminal Node Display"
 }
