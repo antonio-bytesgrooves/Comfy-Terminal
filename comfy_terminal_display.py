@@ -41,7 +41,7 @@ class TerminalDisplayNode:
 
     RETURN_TYPES = ()
     FUNCTION = "execute"
-    OUTPUT_NODE=False
+    OUTPUT_NODE=True
     CATEGORY = "Utils"
     def execute(self, text_input):
         text_display = getoutput(f"{text_input}")
