@@ -31,7 +31,7 @@ class TerminalStandAloneNode:
             dict: Contains input fields config.
         """
         return {
-            "optional": {
+            "required": {
                 "text_input": ("STRING", {
                     "multiline": True,
                     "default": ""
@@ -46,7 +46,7 @@ class TerminalStandAloneNode:
             },
         }
 
-    RETURN_TYPES = ("STRING")
+    RETURN_TYPES = ()
     FUNCTION = "execute"
     CATEGORY = "OS Utils"
 
