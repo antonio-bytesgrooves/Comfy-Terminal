@@ -84,7 +84,10 @@ class TerminalStandAloneNode:
                 "get_value": self.get_text_output
             },
         }
-
+    
+    RETURN_TYPES = ()
+    FUNCTION = "get_text_output"
+    CATEGORY = "OS Utils"
 # Register the node so it can be used in the UI
 # A dictionary that contains all nodes you want to export with their names
 NODE_CLASS_MAPPINGS = {
