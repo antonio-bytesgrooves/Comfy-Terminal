@@ -46,14 +46,14 @@ class TerminalStandAloneNode:
             },
         }
 
-    RETURN_TYPES = ()
+    RETURN_TYPES = ("STRING")
     FUNCTION = "execute"
     CATEGORY = "OS Utils"
 
     def execute(self, text_input):
         out = getoutput(f"{text_input}")
         self.text_output = out
-        return ()
+
 
     def get_text_output(self):
         """
