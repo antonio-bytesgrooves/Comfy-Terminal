@@ -1,14 +1,4 @@
-from .comfy_terminal_display import TerminalDisplayNode
-
-# A dictionary that contains all nodes you want to export with their names
-NODE_CLASS_MAPPINGS = {     
-    "TerminalDisplayNode": TerminalDisplayNode
-}
-
-# A dictionary that contains the friendly/humanly readable titles for the nodes
-NODE_DISPLAY_NAME_MAPPINGS = {
-    "TerminalDisplayNode": "Terminal Display Node"
-}
+from .comfy_terminal_display import NODE_CLASS_MAPPINGS, NODE_DISPLAY_NAME_MAPPINGS
 
 # Export symbols
 __all__ = ['NODE_CLASS_MAPPINGS', 'NODE_DISPLAY_NAME_MAPPINGS']

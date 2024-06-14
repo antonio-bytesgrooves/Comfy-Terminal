@@ -41,7 +41,16 @@ class TerminalNode:
 
     RETURN_TYPES = ("STRING",)
     FUNCTION = "execute"
-    CATEGORY = "Utils"
+    CATEGORY = "OS Utils"
     def execute(self, text_input):
         out = getoutput(f"{text_input}")
         return (out,)
+    
+NODE_CLASS_MAPPINGS = {
+    "TerminalNode": TerminalNode
+}
+
+# A dictionary that contains the friendly/humanly readable titles for the nodes
+NODE_DISPLAY_NAME_MAPPINGS = {
+    "TerminalNode": "Terminal Node"
+}

@@ -1,9 +1,6 @@
 from subprocess import getoutput
 
 class TerminalDisplayNode:
-
-    retval = ""
-
     """
     A custom node with no external input, only a multiline textbox for user input.
     Class methods
@@ -40,34 +37,20 @@ class TerminalDisplayNode:
             },
         }
     
-    RETURN_TYPES = (retval)
+    RETURN_TYPES = ()
     FUNCTION = "execute"
     OUTPUT_NODE=True
     CATEGORY = "OS Utils"
     def execute(self,text_input):
-        out = getoutput(f"{text_input}")
-        return (out,)
+        print(text_input)
+        return (text_input,)
     
-    @classmethod
-    def INPUT_TYPES(out):
-        """
-        Return a dictionary which contains config for all input fields.
 
-        Returns:
-            dict: Contains input fields config.
-        """
-        return {
-            "required": {
-                "text_display": ("STRING", {
-                    "multiline": True,
-                    "default": ""
-                }),
-            },
-        }
-    
-    RETURN_TYPES = ()
-    FUNCTION = "execute"
-    CATEGORY = "OS Utils"
-    def execute(self,text_display):
-        out = getoutput()
-        return (out,)
+NODE_CLASS_MAPPINGS = {
+    "TerminalDisplayNode": TerminalDisplayNode
+}
+
+# A dictionary that contains the friendly/humanly readable titles for the nodes
+NODE_DISPLAY_NAME_MAPPINGS = {
+    "TerminalDisplayNode": "Terminal Display Node"
+}
