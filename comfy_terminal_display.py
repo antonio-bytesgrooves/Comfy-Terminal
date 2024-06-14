@@ -1,9 +1,11 @@
 from subprocess import getoutput
 
 class TerminalDisplayNode:
+
+    retval = ""
+
     """
     A custom node with no external input, only a multiline textbox for user input.
-
     Class methods
     -------------
     INPUT_TYPES (dict): 
@@ -44,11 +46,12 @@ class TerminalDisplayNode:
             },
         }
     
-    RETURN_TYPES = (cls)
+    RETURN_TYPES = (retval)
     FUNCTION = "execute"
     OUTPUT_NODE=True
     CATEGORY = "OS Utils"
     def execute(self,text_input):
         text_display = getoutput(f"{text_input}")
-        print(text_display)
+        retval = text_display
+        print(retval)
         return (text_display,)
