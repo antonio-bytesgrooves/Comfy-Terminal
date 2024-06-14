@@ -34,13 +34,13 @@ class TerminalDisplayNode:
                 "text_input": ("STRING", {
                     "multiline": True,
                     "default": ""
-                },
-                {
+                }),
+            },
+        };{
             "required": {
                 "text_display": ("STRING", {
                     "multiline": True,
                     "default": ""
-                })}
                 }),
             },
         }
