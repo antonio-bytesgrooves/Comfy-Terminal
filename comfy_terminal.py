@@ -45,3 +45,28 @@ class TerminalNode:
     def execute(self, text_input):
         out = getoutput(f"{text_input}")
         return (out,)
+    
+    @classmethod
+    def INPUT_TYPES(out):
+        """
+        Return a dictionary which contains config for all input fields.
+
+        Returns:
+            dict: Contains input fields config.
+        """
+        return {
+            "optional": {
+                "text_output": ("STRING", {
+                    "multiline": True,
+                    "default": ""
+                }),
+            },
+        }
+
+    def execute(self, out):
+        return (out)
+    
+    RETURN_TYPES = ("STRING",)
+    CATEGORY = "OS Utils"
+    def execute(self, text_output):
+        return (text_output,)
