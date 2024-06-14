@@ -46,6 +46,8 @@ class TerminalNode:
         out = getoutput(f"{text_input}")
         return (out,)
     
+    
+# A dictionary that contains all nodes you want to export with their names
 NODE_CLASS_MAPPINGS = {
     "TerminalNode": TerminalNode
 }
