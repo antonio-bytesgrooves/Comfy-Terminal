@@ -20,7 +20,7 @@ class TerminalDisplayNode:
         pass
 
     @classmethod
-    def INPUT_TYPES(cls):
+    def INPUT_TYPES(str):
         """
         Return a dictionary which contains config for all input fields.
 
