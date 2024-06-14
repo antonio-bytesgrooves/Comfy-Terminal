@@ -21,7 +21,7 @@ class TerminalNodeDisplay:
         pass
 
     @classmethod
-    def INPUT_TYPES(s):
+    def INPUT_TYPES(cls):
         """
         Return a dictionary which contains config for all input fields.
 
@@ -41,9 +41,8 @@ class TerminalNodeDisplay:
             },
         }
 
-    RETURN_TYPES = ()
-    RETURN_NAMES = ()
-    OUTPUT_NODE = False
+    RETURN_TYPES = ("STRING")
+    OUTPUT_NODE = True
     FUNCTION = "execute"
     CATEGORY = "OS Utils"
     def execute(self, text_input):
