@@ -45,7 +45,7 @@ class TerminalDisplayNode:
             },
         }
     
-    RETURN_TYPES = ("STRING")
+    RETURN_TYPES = ()
     FUNCTION = "execute"
     OUTPUT_NODE=True
     CATEGORY = "OS Utils"
