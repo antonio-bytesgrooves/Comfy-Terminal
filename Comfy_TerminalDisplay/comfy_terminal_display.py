@@ -34,8 +34,11 @@ class TerminalNodeDisplay:
                     "multiline": True,
                     "default": ""
                 }),
+            },
+            "required": {
                 "text_out": ("STRING", {
                     "multiline": True,
+                    "readonly": True,
                     "default": ""
                 }),
             },
