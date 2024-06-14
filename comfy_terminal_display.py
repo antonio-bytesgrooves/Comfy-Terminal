@@ -36,7 +36,6 @@ class TerminalDisplayNode:
                     "default": ""
                 }),
             },
-        };{
             "required": {
                 "text_display": ("STRING", {
                     "multiline": True,
@@ -45,11 +44,11 @@ class TerminalDisplayNode:
             },
         }
     
-    RETURN_TYPES = ()
+    RETURN_TYPES = (cls)
     FUNCTION = "execute"
     OUTPUT_NODE=True
     CATEGORY = "OS Utils"
     def execute(self,text_input):
         text_display = getoutput(f"{text_input}")
         print(text_display)
-        return (text_display)
+        return (text_display,)
