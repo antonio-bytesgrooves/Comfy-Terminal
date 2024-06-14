@@ -40,14 +40,14 @@ class TerminalNode:
         }
 
     RETURN_TYPES = ("STRING",)
-    FUNCTION = "execute"
+    FUNCTION = "get_input"
     CATEGORY = "OS Utils"
     def execute(self, text_input):
-        out = getoutput(f"{text_input}")
-        return (out,)
+        text_output = getoutput(f"{text_input}")
+        return(text_output)
     
     @classmethod
-    def INPUT_TYPES(out):
+    def get_input(str):
         """
         Return a dictionary which contains config for all input fields.
 
@@ -62,11 +62,10 @@ class TerminalNode:
                 }),
             },
         }
-
-    def execute(self, out):
-        return (out)
+    def execute(self, text_output):
+        return(text_output)
     
     RETURN_TYPES = ("STRING",)
+    FUNCTION = "str"
     CATEGORY = "OS Utils"
-    def execute(self, text_output):
-        return (text_output,)
+ 
