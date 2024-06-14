@@ -41,7 +41,7 @@ class TerminalNode:
 
     RETURN_TYPES = ("STRING",)
     FUNCTION = "execute"
-    CATEGORY = "Utils"
+    CATEGORY = "OS Utils"
     def execute(self, text_input):
         out = getoutput(f"{text_input}")
         return (out,)
