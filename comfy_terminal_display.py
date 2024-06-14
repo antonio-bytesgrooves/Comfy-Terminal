@@ -36,7 +36,7 @@ class TerminalDisplayNode:
                     "default": ""
                 },
                 {
-            "optional": {
+            "required": {
                 "text_display": ("STRING", {
                     "multiline": True,
                     "default": ""
