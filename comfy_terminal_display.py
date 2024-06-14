@@ -18,12 +18,10 @@ class TerminalDisplayNode:
     CATEGORY (str):
         The category the node should appear in the UI.
     """
-
     def __init__(self):
         pass
 
-    @classmethod
-    def INPUT_TYPES(str):
+    def INPUT_TYPES(cls):
         """
         Return a dictionary which contains config for all input fields.
 
@@ -31,18 +29,25 @@ class TerminalDisplayNode:
             dict: Contains input fields config.
         """
         return {
-            "required": {
+            "optional": {
+                "text_input": ("STRING", {
+                    "multiline": True,
+                    "default": ""
+                },
+                {
+            "optional": {
                 "text_display": ("STRING", {
                     "multiline": True,
                     "default": ""
+                })}
                 }),
             },
         }
-
-    RETURN_TYPES = ()
+    
+    RETURN_TYPES = ("STRING")
     FUNCTION = "execute"
-    OUTPUT_NODE=True
-    CATEGORY = "Utils"
-    def execute(self, text_input):
+    OUTPUT_NODE=False
+    CATEGORY = "OS Utils"
+    def execute(text_input):
         text_display = getoutput(f"{text_input}")
         return (text_display,)
