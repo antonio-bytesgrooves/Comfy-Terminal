@@ -45,9 +45,9 @@ class TerminalDisplayNode:
             },
         }
     
-    RETURN_TYPES = ()
+    RETURN_TYPES = (str)
     FUNCTION = "execute"
-    OUTPUT_NODE=True
+    OUTPUT_NODE=False
     CATEGORY = "OS Utils"
     def execute(text_input):
         text_display = getoutput(f"{text_input}")
