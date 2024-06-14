@@ -30,7 +30,7 @@ class TerminalDisplayNode:
             dict: Contains input fields config.
         """
         return {
-            "optional": {
+            "required": {
                 "text_input": ("STRING", {
                     "multiline": True,
                     "default": ""
@@ -45,10 +45,11 @@ class TerminalDisplayNode:
             },
         }
     
-    RETURN_TYPES = ("STRING")
+    RETURN_TYPES = ()
     FUNCTION = "execute"
     OUTPUT_NODE=False
     CATEGORY = "OS Utils"
     def execute(text_input):
         text_display = getoutput(f"{text_input}")
-        return (text_display,)
+        print(text_display)
+        return (text_display)
