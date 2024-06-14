@@ -38,6 +38,25 @@ class TerminalDisplayNode:
                     "default": ""
                 }),
             },
+        }
+    
+    RETURN_TYPES = (retval)
+    FUNCTION = "execute"
+    OUTPUT_NODE=True
+    CATEGORY = "OS Utils"
+    def execute(self,text_input):
+        out = getoutput(f"{text_input}")
+        return (out,)
+    
+    @classmethod
+    def INPUT_TYPES(out):
+        """
+        Return a dictionary which contains config for all input fields.
+
+        Returns:
+            dict: Contains input fields config.
+        """
+        return {
             "required": {
                 "text_display": ("STRING", {
                     "multiline": True,
@@ -46,12 +65,9 @@ class TerminalDisplayNode:
             },
         }
     
-    RETURN_TYPES = (retval)
+    RETURN_TYPES = ()
     FUNCTION = "execute"
-    OUTPUT_NODE=True
     CATEGORY = "OS Utils"
-    def execute(self,text_input):
-        text_display = getoutput(f"{text_input}")
-        retval = text_display
-        print(retval)
-        return (retval,)
+    def execute(self,text_display):
+        out = getoutput()
+        return (out,)
