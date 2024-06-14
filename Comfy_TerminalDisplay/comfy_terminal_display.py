@@ -1,64 +1,38 @@
 class TerminalNodeDisplay:
-    """
-    A custom node with no external input, only a multiline textbox for user input.
-
-    Class methods
-    -------------
-    INPUT_TYPES (dict): 
-        Returns the input parameters configuration of the node.
-
-    Attributes
-    ----------
-    RETURN_TYPES (tuple): 
-        The type of each element in the output tuple.
-    FUNCTION (str):
-        The name of the entry-point method. For example, if `FUNCTION = "execute"` then it will run CustomTextNode().execute()
-    CATEGORY (str):
-        The category the node should appear in the UI.
-    """
-
-    def __init__(self):
-        pass
-
     @classmethod
-    def INPUT_TYPES(cls):
-        """
-        Return a dictionary which contains config for all input fields.
-
-        Returns:
-            dict: Contains input fields config.
-        """
+    def INPUT_TYPES(s):
         return {
             "required": {
-                "text_input": ("STRING", {
-                    "multiline": True,
-                    "default": ""
-                }),
+                "info": ("STRING", {"multiline": True, "forceInput": True}),
             },
-            "required": {
-                "text_out": ("STRING", {
-                    "multiline": True,
-                    "readonly": True,
-                    "default": ""
-                }),
+            "hidden": {
+                "unique_id": "UNIQUE_ID",
+                "extra_pnginfo": "EXTRA_PNGINFO",
             },
         }
 
-    RETURN_TYPES = ("STRING")
+    INPUT_IS_LIST = True
+    RETURN_TYPES = ()
+    FUNCTION = "notify"
     OUTPUT_NODE = True
-    FUNCTION = "execute"
-    CATEGORY = "OS Utils"
-    def execute(self, text_input):
-        text_out = text_input
-        return (text_out,)
-    
+    OUTPUT_IS_LIST = (True,)
 
-# A dictionary that contains all nodes you want to export with their names
+    CATEGORY =  'OS Utils'
+
+    def notify(self, info, unique_id = None, extra_pnginfo=None):
+        text = info 
+        if unique_id and extra_pnginfo and "workflow" in extra_pnginfo[0]:
+            workflow = extra_pnginfo[0]["workflow"]
+            node = next((x for x in workflow["nodes"] if str(x["id"]) == unique_id[0]), None)
+            if node: 
+                node["widgets_values"] = [text]
+
+        return {"ui": {"text": text}, "result": (text,)}
+
 NODE_CLASS_MAPPINGS = {
     "TerminalNodeDisplay": TerminalNodeDisplay
 }
 
-# A dictionary that contains the friendly/humanly readable titles for the nodes
 NODE_DISPLAY_NAME_MAPPINGS = {
     "TerminalNodeDisplay": "Terminal Node Display"
 }
